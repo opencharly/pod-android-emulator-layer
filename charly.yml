@@ -17,8 +17,8 @@ android-emulator-layer:
             helper scripts, the AVD home directory, and the booted device are all
             directly observable, so the behaviour is verifiable end to end.
         require:
-            - '@github.com/opencharly/layer-android-sdk:v2026.237.805'
-            - '@github.com/opencharly/pod-appium-server:v2026.237.935'
+            - '@github.com/opencharly/layer-android-sdk:v2026.238.2102'
+            - '@github.com/opencharly/pod-appium-server:v2026.238.2114'
             - '@github.com/opencharly/layer-supervisord:v2026.235.2056'
             # plugin-appium is the OUT-OF-TREE plugin that serves the `appium:` check
             # verb (the heavy github.com/tebeka/selenium dep lives there, not in charly's
@@ -27,7 +27,7 @@ android-emulator-layer:
             # dispatch. (box/cachyos adopts the matching @github pin via reconcile later —
             # the deliberate cross-repo lag; the R10 bed loads the LOCAL candy via the
             # superproject override.)
-            - plugin-appium
+            - '@github.com/opencharly/plugin-appium/candy/plugin-appium:v2026.237.1414'
             # plugin-adb is the OUT-OF-TREE plugin that serves the `adb:` check verb AND the
             # goadb-backed `target: android` deploy / `charly status` device ops (the
             # github.com/zach-klippenstein/goadb dep lives there, not in charly's core).
@@ -36,7 +36,7 @@ android-emulator-layer:
             # bed's `adb:` checks and the android deploy's install / wait-for-device ops
             # dispatch. (Same deliberate cross-repo lag as plugin-appium; the R10 bed loads
             # the LOCAL candy via the superproject override.)
-            - plugin-adb
+            - '@github.com/opencharly/plugin-adb/candy/plugin-adb:v2026.237.1413'
         env:
             EMULATOR_NAME: "charly_avd_36"
             EMULATOR_API_LEVEL: "36"
