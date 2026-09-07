@@ -592,6 +592,12 @@ android-emulator-layer:
                 selector: 'new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text("Gruyere"))'
               stdout:
                 - matches: "."
+              # UI-render race on a cold emulator boot (live-observed on the
+              # E-4 bed run 2026.250.1905: the uiautomator scrollIntoView raced
+              # the List1 activity render — the same find succeeds immediately
+              # on a settled display). Bounded eventually, not a sleep.
+              eventually: 90s
+              retry_interval: 5s
               context:
                 - runtime
             - check: appium=app-start-activity
