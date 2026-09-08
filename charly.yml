@@ -18,7 +18,7 @@ android-emulator-layer:
             directly observable, so the behaviour is verifiable end to end.
         require:
             - '@github.com/opencharly/layer-android-sdk:v2026.250.1813'  # aapt2 at build-tools/36.0.0 (PR #3; the 239.1604 pin baked the old 36/ check)
-            - '@github.com/opencharly/pod-appium-server:v2026.239.1604'
+            - '@github.com/opencharly/pod-appium-server:v2026.251.0815'
             - '@github.com/opencharly/layer-supervisord:v2026.240.0121'
             # plugin-appium is the OUT-OF-TREE plugin that serves the `appium:` check
             # verb (the heavy github.com/tebeka/selenium dep lives there, not in charly's
