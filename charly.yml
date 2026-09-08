@@ -411,6 +411,7 @@ android-emulator-layer:
             - check: appium=session-create
               id: appium-session-create
               appium:
+                session_file: baked
                 method: session-create
                 # UiAutomator2 installs its instrumentation server APK + waits for the
                 # test runner on first invocation; on a fresh emulator this exceeds the
@@ -427,6 +428,7 @@ android-emulator-layer:
             - check: appium=raw
               id: av-set-implicit-wait
               appium:
+                session_file: baked
                 method: raw
                 http_method: POST
                 path: /timeouts
@@ -436,6 +438,7 @@ android-emulator-layer:
             - check: appium=install-app
               id: appium-install-apidemos
               appium:
+                session_file: baked
                 method: install-app
                 # HOST path (resolved against project root); the verb stages it into the
                 # container via `<engine> cp` then calls mobile:installApp.
@@ -460,6 +463,7 @@ android-emulator-layer:
             - check: appium=app-is-installed
               id: av-app-installed
               appium:
+                session_file: baked
                 method: app-is-installed
                 app_id: io.appium.android.apis
               stdout:
@@ -469,6 +473,7 @@ android-emulator-layer:
             - check: appium=app-activate
               id: av-app-activate
               appium:
+                session_file: baked
                 method: app-activate
                 app_id: io.appium.android.apis
               stdout:
@@ -478,6 +483,7 @@ android-emulator-layer:
             - check: appium=app-start-activity
               id: av-textfields-open
               appium:
+                session_file: baked
                 method: app-start-activity
                 activity: io.appium.android.apis/.view.TextFields
               stdout:
@@ -487,6 +493,7 @@ android-emulator-layer:
             - check: appium=send-keys
               id: av-textfields-type
               appium:
+                session_file: baked
                 method: send-keys
                 strategy: class-name
                 selector: android.widget.EditText
@@ -496,6 +503,7 @@ android-emulator-layer:
             - check: appium=get-text
               id: av-textfields-readback
               appium:
+                session_file: baked
                 method: get-text
                 strategy: class-name
                 selector: android.widget.EditText
@@ -506,6 +514,7 @@ android-emulator-layer:
             - check: appium=app-start-activity
               id: av-controls-open
               appium:
+                session_file: baked
                 method: app-start-activity
                 activity: io.appium.android.apis/.view.Controls1
               stdout:
@@ -515,6 +524,7 @@ android-emulator-layer:
             - check: appium=gesture-tap
               id: av-checkbox-tap
               appium:
+                session_file: baked
                 method: gesture-tap
                 strategy: class-name
                 selector: android.widget.CheckBox
@@ -525,6 +535,7 @@ android-emulator-layer:
             - check: appium=get-attribute
               id: av-checkbox-checked
               appium:
+                session_file: baked
                 method: get-attribute
                 strategy: class-name
                 selector: android.widget.CheckBox
@@ -536,6 +547,7 @@ android-emulator-layer:
             - check: appium=app-start-activity
               id: av-radio-open
               appium:
+                session_file: baked
                 method: app-start-activity
                 activity: io.appium.android.apis/.view.RadioGroup1
               stdout:
@@ -545,6 +557,7 @@ android-emulator-layer:
             - check: appium=gesture-tap
               id: av-radio-tap
               appium:
+                session_file: baked
                 method: gesture-tap
                 strategy: android-uiautomator
                 selector: 'new UiSelector().text("Snack")'
@@ -555,6 +568,7 @@ android-emulator-layer:
             - check: appium=get-attribute
               id: av-radio-checked
               appium:
+                session_file: baked
                 method: get-attribute
                 strategy: android-uiautomator
                 selector: 'new UiSelector().text("Snack")'
@@ -566,6 +580,7 @@ android-emulator-layer:
             - check: appium=app-start-activity
               id: av-list-open
               appium:
+                session_file: baked
                 method: app-start-activity
                 activity: io.appium.android.apis/.view.List1
               stdout:
@@ -575,6 +590,7 @@ android-emulator-layer:
             - check: appium=gesture-scroll
               id: av-list-scroll
               appium:
+                session_file: baked
                 method: gesture-scroll
                 strategy: class-name
                 selector: android.widget.ListView
@@ -587,6 +603,7 @@ android-emulator-layer:
             - check: appium=find
               id: av-list-scroll-into-view
               appium:
+                session_file: baked
                 method: find
                 strategy: android-uiautomator
                 selector: 'new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text("Gruyere"))'
@@ -603,6 +620,7 @@ android-emulator-layer:
             - check: appium=app-start-activity
               id: av-spinner-open
               appium:
+                session_file: baked
                 method: app-start-activity
                 activity: io.appium.android.apis/.view.Spinner1
               stdout:
@@ -612,6 +630,7 @@ android-emulator-layer:
             - check: appium=gesture-tap
               id: av-spinner-open-planet
               appium:
+                session_file: baked
                 method: gesture-tap
                 strategy: android-uiautomator
                 selector: 'new UiSelector().text("Mercury")'
@@ -622,6 +641,7 @@ android-emulator-layer:
             - check: appium=gesture-tap
               id: av-spinner-pick
               appium:
+                session_file: baked
                 method: gesture-tap
                 strategy: android-uiautomator
                 selector: 'new UiSelector().text("Jupiter")'
@@ -639,6 +659,7 @@ android-emulator-layer:
             - check: appium=app-start-activity
               id: av-datetime-open
               appium:
+                session_file: baked
                 method: app-start-activity
                 activity: io.appium.android.apis/.view.DateWidgets1
               stdout:
@@ -648,6 +669,7 @@ android-emulator-layer:
             - check: appium=get-text
               id: av-datetime-text
               appium:
+                session_file: baked
                 method: get-text
                 strategy: id
                 selector: io.appium.android.apis:id/dateDisplay
@@ -658,6 +680,7 @@ android-emulator-layer:
             - check: appium=app-start-activity
               id: av-seekbar-open
               appium:
+                session_file: baked
                 method: app-start-activity
                 activity: io.appium.android.apis/.view.SeekBar1
               stdout:
@@ -667,6 +690,7 @@ android-emulator-layer:
             - check: appium=gesture-swipe
               id: av-seekbar-swipe
               appium:
+                session_file: baked
                 method: gesture-swipe
                 strategy: class-name
                 selector: android.widget.SeekBar
@@ -679,6 +703,7 @@ android-emulator-layer:
             - check: appium=get-text
               id: av-seekbar-progress
               appium:
+                session_file: baked
                 method: get-text
                 strategy: id
                 selector: io.appium.android.apis:id/progress
@@ -689,6 +714,7 @@ android-emulator-layer:
             - check: appium=app-start-activity
               id: av-dnd-open
               appium:
+                session_file: baked
                 method: app-start-activity
                 activity: io.appium.android.apis/.view.DragAndDropDemo
               stdout:
@@ -698,6 +724,7 @@ android-emulator-layer:
             - check: appium=gesture-drag
               id: av-dnd-drag
               appium:
+                session_file: baked
                 method: gesture-drag
                 strategy: id
                 selector: io.appium.android.apis:id/drag_dot_1
@@ -716,6 +743,7 @@ android-emulator-layer:
             - check: appium=app-start-activity
               id: av-webview-open
               appium:
+                session_file: baked
                 method: app-start-activity
                 activity: io.appium.android.apis/.view.WebView1
               stdout:
@@ -734,6 +762,7 @@ android-emulator-layer:
             - check: appium=device-context
               id: av-webview-switch
               appium:
+                session_file: baked
                 method: device-context
                 params: WEBVIEW_io.appium.android.apis
               stdout:
@@ -751,6 +780,7 @@ android-emulator-layer:
             - check: appium=device-context
               id: av-webview-native
               appium:
+                session_file: baked
                 method: device-context
                 params: NATIVE_APP
               stdout:
@@ -760,6 +790,7 @@ android-emulator-layer:
             - check: appium=app-start-activity
               id: av-notif-open
               appium:
+                session_file: baked
                 method: app-start-activity
                 activity: io.appium.android.apis/.app.StatusBarNotifications
               stdout:
@@ -769,6 +800,7 @@ android-emulator-layer:
             - check: appium=gesture-tap
               id: av-notif-fire
               appium:
+                session_file: baked
                 method: gesture-tap
                 strategy: android-uiautomator
                 selector: 'new UiSelector().text(":-|")'
@@ -795,6 +827,7 @@ android-emulator-layer:
             - check: appium=key-press
               id: av-notif-close-shade
               appium:
+                session_file: baked
                 method: key-press
                 keycode: 4
               context:
@@ -823,6 +856,7 @@ android-emulator-layer:
             - check: appium=execute
               id: av-execute-devicetime
               appium:
+                session_file: baked
                 method: execute
                 expression: "mobile: getDeviceTime"
               stdout:
@@ -832,6 +866,7 @@ android-emulator-layer:
             - check: appium=raw
               id: av-raw-orientation
               appium:
+                session_file: baked
                 method: raw
                 http_method: GET
                 path: /orientation
@@ -842,6 +877,7 @@ android-emulator-layer:
             - check: appium=screenshot
               id: appium-screenshot
               appium:
+                session_file: baked
                 method: screenshot
                 artifact: /tmp/charly-check-appium-screenshot.png
                 artifact_min_bytes: 5000
