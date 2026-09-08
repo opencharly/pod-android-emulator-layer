@@ -651,7 +651,9 @@ android-emulator-layer:
                 - runtime
             - check: appium=source
               id: av-spinner-selected
-              appium: source
+              appium:
+                method: source
+                session_file: baked
               stdout:
                 - contains: Jupiter
               context:
@@ -735,7 +737,9 @@ android-emulator-layer:
                 - runtime
             - check: appium=source
               id: av-dnd-result
-              appium: source
+              appium:
+                method: source
+                session_file: baked
               stdout:
                 - contains: Dropped
               context:
@@ -752,7 +756,9 @@ android-emulator-layer:
                 - runtime
             - check: appium=device-contexts
               id: av-webview-contexts
-              appium: device-contexts
+              appium:
+                method: device-contexts
+                session_file: baked
               stdout:
                 - contains: WEBVIEW
               eventually: 30s
@@ -772,7 +778,9 @@ android-emulator-layer:
                 - runtime
             - check: appium=source
               id: av-webview-html
-              appium: source
+              appium:
+                method: source
+                session_file: baked
               stdout:
                 - contains: "<html"
               context:
@@ -810,14 +818,18 @@ android-emulator-layer:
                 - runtime
             - check: appium=device-notifications
               id: av-notif-shade
-              appium: device-notifications
+              appium:
+                method: device-notifications
+                session_file: baked
               stdout:
                 - contains: opened
               context:
                 - runtime
             - check: appium=source
               id: av-notif-present
-              appium: source
+              appium:
+                method: source
+                session_file: baked
               stdout:
                 - contains: "Mood ring"
               eventually: 15s
@@ -834,21 +846,27 @@ android-emulator-layer:
                 - runtime
             - check: appium=device-info
               id: av-device-info
-              appium: device-info
+              appium:
+                method: device-info
+                session_file: baked
               stdout:
                 - contains: platformVersion
               context:
                 - runtime
             - check: appium=app-current-package
               id: av-current-package
-              appium: app-current-package
+              appium:
+                method: app-current-package
+                session_file: baked
               stdout:
                 - contains: io.appium.android.apis
               context:
                 - runtime
             - check: appium=device-orientation
               id: av-orientation
-              appium: device-orientation
+              appium:
+                method: device-orientation
+                session_file: baked
               stdout:
                 - contains: PORTRAIT
               context:
@@ -885,7 +903,9 @@ android-emulator-layer:
                 - runtime
             - check: appium=session-delete
               id: appium-session-delete
-              appium: session-delete
+              appium:
+                method: session-delete
+                session_file: baked
               stdout:
                 - contains: deleted
               context:
