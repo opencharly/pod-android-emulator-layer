@@ -1,7 +1,5 @@
-version: 2026.232.0520
 android-emulator-layer:
     candy:
-        version: 2026.174.0700
         description: |
             Compose selkies + android-sdk + appium into a booting Android 16 emulator.
             Composite glue layer that turns the underlying selkies-desktop +
