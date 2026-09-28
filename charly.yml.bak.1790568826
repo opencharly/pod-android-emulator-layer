@@ -1,5 +1,7 @@
+version: 2026.232.0520
 android-emulator-layer:
     candy:
+        version: 2026.174.0700
         description: |
             Compose selkies + android-sdk + appium into a booting Android 16 emulator.
             Composite glue layer that turns the underlying selkies-desktop +
@@ -15,7 +17,7 @@ android-emulator-layer:
             helper scripts, the AVD home directory, and the booted device are all
             directly observable, so the behaviour is verifiable end to end.
         require:
-            - '@github.com/opencharly/layer-android-sdk:v2026.250.1813' # aapt2 at build-tools/36.0.0 (PR #3; the 239.1604 pin baked the old 36/ check)
+            - '@github.com/opencharly/layer-android-sdk:v2026.250.1813'  # aapt2 at build-tools/36.0.0 (PR #3; the 239.1604 pin baked the old 36/ check)
             - '@github.com/opencharly/pod-appium-server:v2026.251.0815'
             - '@github.com/opencharly/layer-supervisord:v2026.240.0121'
             # plugin-appium is the OUT-OF-TREE plugin that serves the `appium:` check
@@ -25,7 +27,7 @@ android-emulator-layer:
             # dispatch. (box/cachyos adopts the matching @github pin via reconcile later —
             # the deliberate cross-repo lag; the R10 bed loads the LOCAL candy via the
             # superproject override.)
-            - '@github.com/opencharly/plugin-appium/candy/plugin-appium:v2026.251.1353'
+            - '@github.com/opencharly/plugin-appium/candy/plugin-appium:v2026.242.0525'
             # plugin-adb is the OUT-OF-TREE plugin that serves the `adb:` check verb AND the
             # goadb-backed `target: android` deploy / `charly status` device ops (the
             # github.com/zach-klippenstein/goadb dep lives there, not in charly's core).
@@ -34,7 +36,7 @@ android-emulator-layer:
             # bed's `adb:` checks and the android deploy's install / wait-for-device ops
             # dispatch. (Same deliberate cross-repo lag as plugin-appium; the R10 bed loads
             # the LOCAL candy via the superproject override.)
-            - '@github.com/opencharly/plugin-adb/candy/plugin-adb:v2026.269.0957'
+            - '@github.com/opencharly/plugin-adb/candy/plugin-adb:v2026.242.0525'
         env:
             EMULATOR_NAME: "charly_avd_36"
             EMULATOR_API_LEVEL: "36"
