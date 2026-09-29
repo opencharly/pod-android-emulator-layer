@@ -32,9 +32,10 @@ android-emulator-layer:
             # Requiring it puts it in this image's scanned candy set, so loadProjectPlugins
             # (in the bed runner AND in `charly fleet add`) builds + connects it before the
             # bed's `adb:` checks and the android deploy's install / wait-for-device ops
-            # dispatch. (Same deliberate cross-repo lag as plugin-appium; the R10 bed loads
-            # the LOCAL candy via the superproject override.)
-            - '@github.com/opencharly/plugin-adb/candy/plugin-adb:v2026.242.0525'
+            # dispatch. Pinned to the merged spec-261 + session-stop recorder-race release
+            # (plugin-adb#12, v2026.269.0957) so the R10 bed runs on shipping pins with no
+            # plugin-adb override.
+            - '@github.com/opencharly/plugin-adb/candy/plugin-adb:v2026.269.0957'
         env:
             EMULATOR_NAME: "charly_avd_36"
             EMULATOR_API_LEVEL: "36"
